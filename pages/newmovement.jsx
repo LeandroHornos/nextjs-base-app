@@ -82,7 +82,7 @@ export default function NewMovement() {
                 <DatePicker locale={es} dateFormat="dd/MM/yyyy" selected={date} onChange={(d) => setDate(d)} />
               </div>
               <button type="submit" class="btn btn-primary">
-                Registrarse
+                Crear
               </button>
             </form>
           </div>
