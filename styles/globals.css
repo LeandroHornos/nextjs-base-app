@@ -35,10 +35,12 @@ h2 {
 
 h3 {
   font-size: 1.6em;
+  padding: 6px 0px;
 }
 
 .title-1 {
   color: var(--color-1);
+  padding: 10px 0px;
 }
 
 header {

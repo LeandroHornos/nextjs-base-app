@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 // Componentes de NextJS
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 // Librerias
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -13,6 +14,13 @@ registerLocale("es", es); // register it with the name you want
 
 export default function NewMovement() {
   const [date, setDate] = useState();
+
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    console.log("Submit");
+    router.push("/movement-items-editor");
+  };
 
   return (
     <div className="cointainer min100">
@@ -41,7 +49,13 @@ export default function NewMovement() {
         <div className="row min80">
           <div className="col-sm-2 col-lg-4"></div>
           <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-            <form className="width100">
+            <form
+              className="width100"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+            >
               <h2>Recorrido</h2>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-text">
@@ -79,7 +93,12 @@ export default function NewMovement() {
                 <label for="date" class="form-text">
                   Fecha
                 </label>
-                <DatePicker locale={es} dateFormat="dd/MM/yyyy" selected={date} onChange={(d) => setDate(d)} />
+                <DatePicker
+                  locale={es}
+                  dateFormat="dd/MM/yyyy"
+                  selected={date}
+                  onChange={(d) => setDate(d)}
+                />
               </div>
               <button type="submit" class="btn btn-primary">
                 Crear

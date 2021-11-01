@@ -1,14 +1,6 @@
 import Head from "next/head";
 
-import { useRouter } from "next/router";
-
 export default function Register() {
-  const router = useRouter();
-
-  const handleSubmit = () => {
-    console.log("registrado");
-    router.push("/movement-list");
-  };
   return (
     <div className="cointainer min100">
       <Head>
@@ -21,15 +13,9 @@ export default function Register() {
           <div className="col-sm-2 col-lg-4"></div>
           <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
             <header>
-              <h1>Registro</h1>
+              <h1>Recupera tu password</h1>
             </header>
-            <form
-              className="width100"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            >
+            <form className="width100">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">
                   Email
@@ -41,28 +27,8 @@ export default function Register() {
                   aria-describedby="emailHelp"
                 />
               </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Elije un Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Repite tu Password
-                </label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleInputPassword1"
-                />
-              </div>
               <button type="submit" class="btn btn-primary">
-                Registrarse
+                Recuperar Password
               </button>
             </form>
             <button className="btn btn-link">

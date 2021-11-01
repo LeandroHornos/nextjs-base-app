@@ -1,7 +1,13 @@
-import Head from 'next/head'
-
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 export default function Login() {
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    console.log("Logueado");
+    router.push("/movement-list");
+  };
   return (
     <div className="cointainer min100">
       <Head>
@@ -13,41 +19,76 @@ export default function Login() {
         <div className="row min80">
           <div className="col-sm-2 col-lg-4"></div>
           <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-          <header>
-            <h1>
-                Ingresar
-            </h1>
-          </header>
-          <form className="width100">
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" />
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <header>
+              <h1>Ingresar</h1>
+            </header>
+            <form
+              className="width100"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit();
+              }}
+            >
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Enviar
+              </button>
             </form>
-            <button className="btn btn-link">Olvidé mi password</button>
+            <button
+              className="btn btn-link"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/recover");
+              }}
+            >
+              Olvidé mi password
+            </button>
+            <button
+              className="btn btn-link"
+              onClick={(e) => {
+                e.preventDefault();
+                router.push("/register");
+              }}
+            >
+              Deseo registrarme
+            </button>
           </div>
           <div className="col-sm-2 col-lg-4"></div>
         </div>
-        
       </main>
       <footer>
         <div className="row min20">
           <div className="col-12 d-flex flex-column justify-content-center align-items-center">
             <a
-            href="https://www.leandrohornos.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            created by Leandro Hornos
-          </a>
+              href="https://www.leandrohornos.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              created by Leandro Hornos
+            </a>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

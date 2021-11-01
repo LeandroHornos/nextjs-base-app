@@ -11,8 +11,6 @@ import es from "date-fns/locale/es"; // the locale you want
 registerLocale("es", es); // register it with the name you want
 
 export default function movementItemsEditor() {
-  const [date, setDate] = useState();
-
   return (
     <div className="cointainer min100">
       <Head>
@@ -46,6 +44,7 @@ export default function movementItemsEditor() {
           <div className="col-lg-5">
             <div className="shadowed-box height100">
               <h2 className="title-1">Ida</h2>
+              <button className="btn btn-sm btn-outline-dark">+ Agregar item</button>
               <h3>Desde: Ubicación 1</h3>
               <h3>Hasta: Ubicación 2</h3>
               <table className="table table-small-font">
@@ -67,6 +66,7 @@ export default function movementItemsEditor() {
           <div className="col-lg-5">
             <div className="shadowed-box height100">
               <h2 className="title-1">Vuelta</h2>
+              <button className="btn btn-sm btn-outline-dark">+ Agregar item</button>
               <h3>Desde: Ubicación 2</h3>
               <h3>Hasta: Ubicación 1</h3>
               <table className="table table-small-font">
