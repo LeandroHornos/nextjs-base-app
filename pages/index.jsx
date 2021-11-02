@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-
-export default function Home() {
+export default function LandingPage() {
+  const router = useRouter();
   return (
     <div className="cointainer min100">
       <Head>
@@ -14,23 +15,27 @@ export default function Home() {
         <div className="row min80">
           <div className="col-sm-2 col-lg-4"></div>
           <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-          <header>
-            <h1>
-                Hola! esto es
-              </h1>
+            <header>
+              <h1>Hola! esto es</h1>
               <h1>My Camion</h1>
-              <p><strong><small>Gestiona envios entre locaciones</small></strong></p>
-          </header>
-          <div class="d-grid width100 gap-3">
-            <Link href="/login">
-              <button className="btn btn-outline-dark" type="button">Entrar</button>
-            </Link>
-            <Link href="/register">
-              <button className="btn btn-outline-dark" type="button">
-              Registro
-              </button>
-            </Link>
-          </div>
+              <p>
+                <strong>
+                  <small>Gestiona envios entre locaciones</small>
+                </strong>
+              </p>
+            </header>
+            <div class="d-grid width100 gap-3">
+              <Link href="/login">
+                <button className="btn btn-primary" type="button">
+                  Entrar
+                </button>
+              </Link>
+              <Link href="/register">
+                <button className="btn btn-dark" type="button">
+                  Registro
+                </button>
+              </Link>
+            </div>
           </div>
           <div className="col-sm-2 col-lg-4"></div>
         </div>
@@ -39,15 +44,15 @@ export default function Home() {
         <div className="row min20">
           <div className="col-12 d-flex flex-column justify-content-center align-items-center">
             <a
-            href="https://www.leandrohornos.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            created by Leandro Hornos
-          </a>
+              href="https://www.leandrohornos.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              created by Leandro Hornos
+            </a>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }

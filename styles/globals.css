@@ -17,6 +17,8 @@ body {
   font-family: "Zen Kaku Gothic Antique", -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
+  background-image: url("../public/purple-background.jpg");
+  background-size: cover;
 }
 
 a {
@@ -43,6 +45,10 @@ h3 {
   padding: 10px 0px;
 }
 
+h1, h2, label {
+  color: white
+}
+
 header {
   margin: 40px 0px;
   text-align: center;
@@ -51,6 +57,11 @@ header {
 .row {
   margin: 0;
   padding: 10px 0px;
+}
+
+.ptb10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .table-small-font {
@@ -73,6 +84,10 @@ header {
   background-color: red;
 }
 
+.bgwhite {
+  background-color: white;
+}
+
 .width100 {
   width: 100%;
 }
@@ -84,5 +99,5 @@ header {
 .shadowed-box {
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 1px 1px 6px 1px rgba(161, 161, 161, 0.3);
+  box-shadow: 1px 1px 8px 2px rgba(59, 59, 59, 0.5);
 }

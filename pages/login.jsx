@@ -6,7 +6,7 @@ export default function Login() {
 
   const handleSubmit = () => {
     console.log("Logueado");
-    router.push("/movement-list");
+    router.push("/home");
   };
   return (
     <div className="cointainer min100">

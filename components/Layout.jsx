@@ -5,7 +5,7 @@ export const FlexRowLg10 = (props) => {
   return (
     <div className={"row" + " " + props.rowClasses}>
       <div className="col-lg-1"></div>
-      <div className="col-lg-10 bgred">{props.children}</div>
+      <div className="col-lg-10">{props.children}</div>
       <div className="col-lg-1"></div>
     </div>
   );

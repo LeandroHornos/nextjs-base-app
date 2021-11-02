@@ -7,7 +7,7 @@ export default function Register() {
 
   const handleSubmit = () => {
     console.log("registrado");
-    router.push("/movement-list");
+    router.push("/home");
   };
   return (
     <div className="cointainer min100">

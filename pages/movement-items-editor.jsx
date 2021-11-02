@@ -41,8 +41,8 @@ export default function movementItemsEditor() {
         <div className="row">
           <div className="col-lg-1"></div>
 
-          <div className="col-lg-5">
-            <div className="shadowed-box height100">
+          <div className="col-lg-5 ptb10">
+            <div className="shadowed-box bgwhite height100">
               <h2 className="title-1">Ida</h2>
               <button className="btn btn-sm btn-outline-dark">+ Agregar item</button>
               <h3>Desde: Ubicación 1</h3>
@@ -63,8 +63,8 @@ export default function movementItemsEditor() {
               </table>
             </div>
           </div>
-          <div className="col-lg-5">
-            <div className="shadowed-box height100">
+          <div className="col-lg-5 ptb10">
+            <div className="shadowed-box bgwhite height100">
               <h2 className="title-1">Vuelta</h2>
               <button className="btn btn-sm btn-outline-dark">+ Agregar item</button>
               <h3>Desde: Ubicación 2</h3>
@@ -97,7 +97,7 @@ export default function movementItemsEditor() {
         <div className="row">
           <div className="col-lg-1"></div>
           <div className="col-lg-10">
-            <div className="shadowed-box width100">
+            <div className="shadowed-box bgwhite width100">
               <h2 className="title-1">Agregar item</h2>
 
               {/* FORM NUEVO ITEM ====================================================== */}
@@ -154,7 +154,7 @@ export default function movementItemsEditor() {
         <div className="row">
           <div className="col-lg-1"></div>
           <div className="col-lg-10">
-            <div className="shadowed-box">
+            <div className="shadowed-box bgwhite">
               <h2 className="title-1">Acciones</h2>
               <h3>
                 <small>Programar Movimiento</small>

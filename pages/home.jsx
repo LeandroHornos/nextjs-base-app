@@ -41,7 +41,7 @@ export default function MovementList() {
               </strong>
             </p>
             <button
-              className="btn btn-outline-dark"
+              className="btn btn-dark"
               onClick={() => {
                 router.push("/new-movement");
               }}
