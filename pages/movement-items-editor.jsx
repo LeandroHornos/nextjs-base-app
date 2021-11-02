@@ -6,7 +6,7 @@ import Head from "next/head";
 
 // Componentes
 import Modal from "../components/Modal";
-import { GeneralLayout } from "../components/Layout";
+import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
 // Datepicker
 import DatePicker, { registerLocale } from "react-datepicker";
@@ -24,21 +24,17 @@ export default function movementItemsEditor() {
   return (
     <GeneralLayout>
       <header>
-        <div className="row">
-          <div className="col-sm-2 col-lg-4"></div>
-          <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-            <h1>Editar items</h1>
-            <p>
-              <strong>
-                <small>
-                  En esta ventana podrás agregar, modificar o eliminar los
-                  elementos que se moveran en el transporte
-                </small>
-              </strong>
-            </p>
-          </div>
-          <div className="col-sm-2 col-lg-4"></div>
-        </div>
+        <CenteredColRow rowClasses="" breakpoint="lg" centerColSize={8}>
+          <h1>Editar items</h1>
+          <p>
+            <strong>
+              <small>
+                En esta ventana podrás agregar, modificar o eliminar los
+                elementos que se moveran en el transporte
+              </small>
+            </strong>
+          </p>
+        </CenteredColRow>
       </header>
       <main>
         <Modal show={showModal} handleClose={hideModal}>
@@ -166,48 +162,39 @@ export default function movementItemsEditor() {
 
           <div className="col-lg-1"></div>
         </div>
-        <div className="row">
-          <div className="col-lg-1"></div>
-          <div className="col-lg-10"></div>
-          <div className="col-md-1"></div>
-        </div>
-        <div className="row">
-          <div className="col-lg-1"></div>
-          <div className="col-lg-10">
-            <div className="shadowed-box bgwhite">
-              <h2 className="title-1">Acciones</h2>
-              <h3>
-                <small>Programar Movimiento</small>
-              </h3>
-              <p>
-                Esta acción <strong>cerrará la edición</strong> de la lista de
-                items. Los usuarios ya no podrán cambiar el contenido de la
-                lista. El movimiento pasa al estado <strong>activo</strong>
-              </p>
-              <button className="btn btn-warning">Programar movimiento</button>
-              <hr />
-              <h3>
-                <small>Finalizar</small>
-              </h3>
-              <p>
-                Esta acción <strong>dará por completada la operación.</strong>El
-                movimiento pasa al estado de <strong>finalizado</strong> Podrá
-                verse en la sección "movimientos anteriores".
-              </p>
-              <button className="btn btn-danger">Finalizar</button>
-              <hr />
-              <h3>
-                <small>Cancelar</small>
-              </h3>
-              <p>
-                Esta acción <strong> descartará el movimiento</strong>. La lista
-                será borrada y este movimiento no aparecerá en los registros.
-              </p>
-              <button className="btn btn-danger">Cancelar</button>
-            </div>
+        <CenteredColRow rowClasses="" breakpoint="lg" centerColSize={10}>
+          <div className="shadowed-box bgwhite">
+            <h2 className="title-1">Acciones</h2>
+            <h3>
+              <small>Programar Movimiento</small>
+            </h3>
+            <p>
+              Esta acción <strong>cerrará la edición</strong> de la lista de
+              items. Los usuarios ya no podrán cambiar el contenido de la lista.
+              El movimiento pasa al estado <strong>activo</strong>
+            </p>
+            <button className="btn btn-warning">Programar movimiento</button>
+            <hr />
+            <h3>
+              <small>Finalizar</small>
+            </h3>
+            <p>
+              Esta acción <strong>dará por completada la operación.</strong>El
+              movimiento pasa al estado de <strong>finalizado</strong> Podrá
+              verse en la sección "movimientos anteriores".
+            </p>
+            <button className="btn btn-danger">Finalizar</button>
+            <hr />
+            <h3>
+              <small>Cancelar</small>
+            </h3>
+            <p>
+              Esta acción <strong> descartará el movimiento</strong>. La lista
+              será borrada y este movimiento no aparecerá en los registros.
+            </p>
+            <button className="btn btn-danger">Cancelar</button>
           </div>
-          <div className="col-lg-1"></div>
-        </div>
+        </CenteredColRow>
       </main>
     </GeneralLayout>
   );

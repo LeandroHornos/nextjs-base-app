@@ -30,6 +30,28 @@ export const FlexRow3ColLg = (props) => {
   );
 };
 
+export const CenteredColRow = (props) => {
+  {
+    /*Este componente devuelve una Row de bootstrap, con 3 cols,
+    una central que lleva el contenido y dos laterales que hacen de borde.
+    centerColSize= número de columnas de ancho de la columna central
+
+    */
+  }
+  const { centerColSize, rowClasses } = props;
+  const bp = props.breakpoint;
+  const left = Math.floor((12 - centerColSize) / 2);
+  const right = 12 - centerColSize - left;
+
+  return (
+    <div className={"row" + " " + rowClasses}>
+      <div className={`col-${bp}-${left}`}></div>
+      <div className={`col-${bp}-${centerColSize}`}>{props.children}</div>
+      <div className={`col-${bp}-${right}`}></div>
+    </div>
+  );
+};
+
 export const GeneralLayout = (props) => {
   const { children } = props;
 
