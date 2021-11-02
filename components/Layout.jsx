@@ -34,7 +34,7 @@ export const GeneralLayout = (props) => {
   const { children } = props;
 
   return (
-    <Fragment>
+    <div className="cointainer min100">
       <Head>
         <title>My Camion</title>
         <meta
@@ -57,6 +57,24 @@ export const GeneralLayout = (props) => {
           </div>
         </div>
       </footer>
-    </Fragment>
+    </div>
+  );
+};
+
+export const BlankLayout = (props) => {
+  const { children } = props;
+
+  return (
+    <div className="cointainer min100">
+      <Head>
+        <title>My Camion</title>
+        <meta
+          name="description"
+          content="Aplicación web para la gestión de un flete entre dos ubicaciones"
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      {children}
+    </div>
   );
 };
