@@ -1,4 +1,6 @@
+import React from "react";
 import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
 // Componentes
 import { BlankLayout } from "../components/Layout";
@@ -6,9 +8,10 @@ import { BlankLayout } from "../components/Layout";
 export default function Login() {
   const router = useRouter();
 
-  const handleSubmit = () => {
-    console.log("Logueado");
-    router.push("/home");
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("esta es la data", data);
   };
   return (
     <BlankLayout>
@@ -19,36 +22,26 @@ export default function Login() {
             <header>
               <h1>Ingresar</h1>
             </header>
-            <form
-              className="width100"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            >
+            <form className="width100" onSubmit={handleSubmit(onSubmit)}>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">
-                  Email
-                </label>
+                <label class="form-label">Email</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
+                  {...register("email")}
+                  aria-describedby="email"
                 />
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">
-                  Password
-                </label>
+                <label class="form-label">Password</label>
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  {...register("password")}
                 />
               </div>
               <button type="submit" class="btn btn-primary">
-                Enviar
+                Entrar
               </button>
             </form>
             <button
