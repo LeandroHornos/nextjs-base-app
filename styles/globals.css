@@ -46,8 +46,7 @@ h3 {
 }
 
 h1,
-h2,
-label {
+h2 {
   color: white;
 }
 
@@ -130,4 +129,8 @@ header {
 
 .display-none {
   display: none;
+}
+
+.input-error {
+  color: red;
 }

@@ -5,10 +5,29 @@ import { useForm } from "react-hook-form";
 // Componentes
 import { BlankLayout } from "../components/Layout";
 
+// Reglas para la validación de forms:
+
+const rules = {
+  email: {
+    pattern:
+      /^[A-Za-z0-9!#$%&'"“”+/\=?^_`{}|~,():;<>[]\-.]*@[A-Za-z0-9-]*\.[A-Za-z]+(?:\.[A-Za-z]+)?(?:\.[A-Za-z]+)?$/,
+    required: true,
+  },
+  password: {
+    minLength: 6,
+    maxLength: 30,
+    required: true,
+  },
+};
+
 export default function Login() {
   const router = useRouter();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmit = (data) => {
     console.log("esta es la data", data);
@@ -28,16 +47,21 @@ export default function Login() {
                 <input
                   type="email"
                   class="form-control"
-                  {...register("email")}
+                  {...register("email", { ...rules.email })}
                   aria-describedby="email"
                 />
               </div>
+              {errors.email?.type === "required" && (
+                <small className="form-text input-error">
+                  Email is required
+                </small>
+              )}
               <div class="mb-3">
                 <label class="form-label">Password</label>
                 <input
                   type="password"
                   class="form-control"
-                  {...register("password")}
+                  {...register("password", { ...rules.password })}
                 />
               </div>
               <button type="submit" class="btn btn-primary">
