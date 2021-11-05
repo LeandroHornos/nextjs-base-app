@@ -5,18 +5,27 @@ import { useForm } from "react-hook-form";
 // Componentes
 import { BlankLayout } from "../components/Layout";
 
-// Reglas para la validación de forms:
+// Reglas de validación del formulario
 
-const rules = {
+const val = {
   email: {
-    pattern:
-      /^[A-Za-z0-9!#$%&'"“”+/\=?^_`{}|~,():;<>[]\-.]*@[A-Za-z0-9-]*\.[A-Za-z]+(?:\.[A-Za-z]+)?(?:\.[A-Za-z]+)?$/,
-    required: true,
+    rules: {
+      pattern:
+        /^[A-Za-z0-9!#$%&'"“”+/\=?^_`{}|~,():;<>[]\-.]*@[A-Za-z0-9-]*\.[A-Za-z]+(?:\.[A-Za-z]+)?(?:\.[A-Za-z]+)?$/,
+      required: true,
+    },
+    msgs: {
+      pattern: "El formato del email ingresado no es válido",
+      required: "Debes ingresar tu email",
+    },
   },
   password: {
-    minLength: 6,
-    maxLength: 30,
-    required: true,
+    rules: {
+      required: true,
+    },
+    msgs: {
+      required: "Debes ingresar tu password",
+    },
   },
 };
 
@@ -47,13 +56,18 @@ export default function Login() {
                 <input
                   type="email"
                   class="form-control"
-                  {...register("email", { ...rules.email })}
+                  {...register("email", { ...val.email.rules })}
                   aria-describedby="email"
                 />
               </div>
               {errors.email?.type === "required" && (
                 <small className="form-text input-error">
-                  Email is required
+                  {val.email.msgs.required}
+                </small>
+              )}
+              {errors.email?.type === "pattern" && (
+                <small className="form-text input-error">
+                  {val.email.msgs.pattern}
                 </small>
               )}
               <div class="mb-3">
@@ -61,8 +75,13 @@ export default function Login() {
                 <input
                   type="password"
                   class="form-control"
-                  {...register("password", { ...rules.password })}
+                  {...register("password", { ...val.password.rules })}
                 />
+                {errors.password?.type === "required" && (
+                  <small className="form-text input-error">
+                    {val.password.msgs.required}
+                  </small>
+                )}
               </div>
               <button type="submit" class="btn btn-primary">
                 Entrar
