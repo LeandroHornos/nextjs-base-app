@@ -10,8 +10,7 @@ import { BlankLayout } from "../components/Layout";
 const val = {
   email: {
     rules: {
-      pattern:
-        /^[A-Za-z0-9!#$%&'"“”+/\=?^_`{}|~,():;<>[]\-.]*@[A-Za-z0-9-]*\.[A-Za-z]+(?:\.[A-Za-z]+)?(?:\.[A-Za-z]+)?$/,
+      pattern: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
       required: true,
     },
     msgs: {
