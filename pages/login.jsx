@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 
 // Componentes
 import { BlankLayout } from "../components/Layout";
+import { InputErrorMessage } from "../components/FormComponents";
 
 // Reglas de validación del formulario
 
@@ -50,39 +51,35 @@ export default function Login() {
               <h1>Ingresar</h1>
             </header>
             <form className="width100" onSubmit={handleSubmit(onSubmit)}>
-              <div class="mb-3">
-                <label class="form-label">Email</label>
+              <div className="mb-3">
+                <label className="form-label">Email</label>
                 <input
                   type="email"
-                  class="form-control"
+                  className="form-control"
                   {...register("email", { ...val.email.rules })}
                   aria-describedby="email"
                 />
               </div>
               {errors.email?.type === "required" && (
-                <small className="form-text input-error">
-                  {val.email.msgs.required}
-                </small>
+                <InputErrorMessage>{val.email.msgs.required}</InputErrorMessage>
               )}
               {errors.email?.type === "pattern" && (
-                <small className="form-text input-error">
-                  {val.email.msgs.pattern}
-                </small>
+                <InputErrorMessage>{val.email.msgs.pattern}</InputErrorMessage>
               )}
-              <div class="mb-3">
-                <label class="form-label">Password</label>
+              <div className="mb-3">
+                <label className="form-label">Password</label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   {...register("password", { ...val.password.rules })}
                 />
                 {errors.password?.type === "required" && (
-                  <small className="form-text input-error">
+                  <InputErrorMessage>
                     {val.password.msgs.required}
-                  </small>
+                  </InputErrorMessage>
                 )}
               </div>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Entrar
               </button>
             </form>
