@@ -60,8 +60,7 @@ export default function Register() {
             <h1>Registro</h1>
           </header>
           <div
-            className="shadowed-box"
-            style={{ backgroundColor: "rgba(255,255,255,0.6)" }}
+            className="shadowed-box box-bg"
           >
             <form className="width100" onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">

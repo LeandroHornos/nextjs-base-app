@@ -42,7 +42,7 @@ export default function Login() {
   };
   return (
     <div className="shadowed-box box-bg">
-      <h1>Ingresar</h1>
+      <h1 className="title-1">Ingresar</h1>
       <form className="width100" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
           <label className="form-label">Email</label>
