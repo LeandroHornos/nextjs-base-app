@@ -17,7 +17,7 @@ body {
   font-family: "Zen Kaku Gothic Antique", -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
-  background-image: url("../public/connections_bg.jpg");
+  background-image: url("../public/purple-background.jpg");
   background-size: cover;
 }
 
@@ -105,6 +105,10 @@ header {
   padding: 15px;
   border-radius: 5px;
   box-shadow: 1px 1px 8px 2px rgba(59, 59, 59, 0.5);
+}
+
+.box-bg {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* MODAL WINDOW*/
