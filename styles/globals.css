@@ -17,7 +17,7 @@ body {
   font-family: "Zen Kaku Gothic Antique", -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
-  background-image: url("../public/purple-background.jpg");
+  background-image: url("../public/connections_bg.jpg");
   background-size: cover;
 }
 
@@ -48,6 +48,10 @@ h3 {
 h1,
 h2 {
   color: white;
+}
+
+label {
+  color: rgb(249, 242, 255);
 }
 
 header {
@@ -132,5 +136,6 @@ header {
 }
 
 .input-error {
-  color: red;
+  color: rgb(190, 29, 0);
+  text-shadow: 5px 5px 12px 12px rgba(0, 0, 0, 1);
 }

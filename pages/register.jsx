@@ -5,8 +5,10 @@ import { BlankLayout } from "../components/Layout";
 import { InputErrorMessage } from "../components/FormComponents";
 
 export default function Register() {
+  // Next Js
   const router = useRouter();
 
+  // React-Hook-Form
   const {
     register,
     handleSubmit,
@@ -15,6 +17,7 @@ export default function Register() {
   } = useForm();
 
   const val = {
+    // Reglas de validación de campos y mensajes de error
     email: {
       rules: {
         pattern: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
@@ -39,7 +42,7 @@ export default function Register() {
     },
     repassword: {
       msgs: {
-        passNotEqual: "Los passwords no coinciden vo",
+        passNotEqual: "Los passwords no coinciden",
       },
     },
   };
@@ -50,13 +53,16 @@ export default function Register() {
   };
   return (
     <BlankLayout>
-      <main>
-        <div className="row min80">
-          <div className="col-sm-2 col-lg-4"></div>
-          <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-            <header>
-              <h1>Registro</h1>
-            </header>
+      <div className="row min80">
+        <div className="col-sm-2 col-lg-4"></div>
+        <div className="col-sm-8 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+          <header>
+            <h1>Registro</h1>
+          </header>
+          <div
+            className="shadowed-box"
+            style={{ backgroundColor: "rgba(255,255,255,0.6)" }}
+          >
             <form className="width100" onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">
@@ -118,9 +124,9 @@ export default function Register() {
               Ya tengo una cuenta y deseo loguearme
             </button>
           </div>
-          <div className="col-sm-2 col-lg-4"></div>
         </div>
-      </main>
+        <div className="col-sm-2 col-lg-4"></div>
+      </div>
     </BlankLayout>
   );
 }
