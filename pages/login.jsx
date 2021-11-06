@@ -60,11 +60,10 @@ export default function Login() {
                   aria-describedby="email"
                 />
               </div>
-              {errors.email?.type === "required" && (
-                <InputErrorMessage>{val.email.msgs.required}</InputErrorMessage>
-              )}
-              {errors.email?.type === "pattern" && (
-                <InputErrorMessage>{val.email.msgs.pattern}</InputErrorMessage>
+              {errors.email && (
+                <InputErrorMessage>
+                  {val.email.msgs[errors.email.type]}
+                </InputErrorMessage>
               )}
               <div className="mb-3">
                 <label className="form-label">Password</label>
@@ -73,9 +72,9 @@ export default function Login() {
                   className="form-control"
                   {...register("password", { ...val.password.rules })}
                 />
-                {errors.password?.type === "required" && (
+                {errors.password && (
                   <InputErrorMessage>
-                    {val.password.msgs.required}
+                    {val.password.msgs[errors.password.type]}
                   </InputErrorMessage>
                 )}
               </div>
