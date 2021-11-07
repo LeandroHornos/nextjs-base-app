@@ -1,5 +1,8 @@
 import React from "react";
+
+// NextJs
 import { useRouter } from "next/router";
+import Link from "next/dist/client/link";
 import { useForm } from "react-hook-form";
 
 // Componentes
@@ -43,7 +46,11 @@ export default function Login() {
   return (
     <div className="shadowed-box box-bg">
       <h1 className="title-1">Ingresar</h1>
-      <form className="width100" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="width100"
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ marginBottom: "20px" }}
+      >
         <div className="mb-3">
           <label className="form-label">Email</label>
           <input
@@ -71,19 +78,22 @@ export default function Login() {
             </InputErrorMessage>
           )}
         </div>
-        <button type="submit" className="btn btn-primary">
-          Entrar
-        </button>
+        <div class="d-grid gap-2 mx-auto">
+          <button type="submit" className="btn btn-primary">
+            Entrar
+          </button>
+        </div>
       </form>
-      <button
-        className="btn btn-link"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push("/recover");
-        }}
-      >
-        Olvidé mi password
-      </button>
+      <div class="d-grid gap-2 mx-auto">
+        <Link href="/register">
+          <button className="btn btn-dark" type="button">
+            Registro
+          </button>
+        </Link>
+        <Link href="/recover">
+          <button className="btn btn-link">Olvidé mi password</button>
+        </Link>
+      </div>
     </div>
   );
 }
