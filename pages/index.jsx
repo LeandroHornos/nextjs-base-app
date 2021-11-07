@@ -1,7 +1,7 @@
 // NextJS
 import Link from "next/link";
-import { useRouter } from "next/router";
 
+// Next Auth
 import { providers, signIn, getSession, csrfToken } from "next-auth/client";
 
 // React Boostrap Icons
@@ -28,7 +28,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function LandingPage({ providers }) {
-  const router = useRouter();
   return (
     <BlankLayout>
       <div className="row">
@@ -94,6 +93,10 @@ function LogIn(props) {
       </form>
       <div className="w100 d-grid gap-2">
         {Object.values(providers).map((provider) => {
+          // El boton de email lo manejo aparte
+          if (provider.name === "Email") {
+            return;
+          }
           return (
             <button
               key={provider.name}
