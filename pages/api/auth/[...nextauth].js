@@ -3,6 +3,17 @@ import Providers from "next-auth/providers";
 
 export default NextAuth({
   providers: [
+    Providers.Email({
+      server: {
+        host: "",
+        port: "",
+        auth: {
+          user: "",
+          pass: "",
+        },
+      },
+      from: "",
+    }),
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,

@@ -88,7 +88,7 @@ function LogIn(props) {
         </div>
         <div className="w100 d-grid gap-2">
           <button className="btn btn-outline-dark provider-btn" type="submit">
-            acceder con email
+            acceder con Email
           </button>
         </div>
       </form>
