@@ -143,3 +143,8 @@ header {
   color: rgb(190, 29, 0);
   text-shadow: 5px 5px 12px 12px rgba(0, 0, 0, 1);
 }
+
+.provider-btn {
+  padding: 16px;
+  margin: 10px 0px;
+}
