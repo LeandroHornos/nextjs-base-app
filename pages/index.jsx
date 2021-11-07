@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
 
   if (session) {
     return {
-      redirect: { destination: "/" },
+      redirect: { destination: "/home" },
     };
   }
 
@@ -75,6 +75,23 @@ function LogIn(props) {
   return (
     <div className="shadowed-box box-bg">
       <h1 className="title-1">Ingresar</h1>
+      <form method="post" action="/api/auth/signin/email">
+        <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+        <div className="mb-3">
+          <label className="form-label">Email</label>
+          <input
+            className="form-control"
+            type="email"
+            id="email"
+            name="email"
+          />
+        </div>
+        <div className="w100 d-grid gap-2">
+          <button className="btn btn-outline-dark provider-btn" type="submit">
+            acceder con email
+          </button>
+        </div>
+      </form>
       <div className="w100 d-grid gap-2">
         {Object.values(providers).map((provider) => {
           return (
@@ -83,17 +100,10 @@ function LogIn(props) {
               className="btn btn-outline-primary provider-btn"
               onClick={() => signIn(provider.id)}
             >
-              Ingresar con {provider.name}
+              acceder con {provider.name}
             </button>
           );
         })}
-      </div>
-      <div className="w100 d-grid gap-2">
-        <Link href="/register">
-          <button className="btn btn-dark" type="button">
-            Registro
-          </button>
-        </Link>
       </div>
     </div>
   );
