@@ -2,7 +2,13 @@
 import Link from "next/link";
 
 // Next Auth
-import { providers, signIn, getSession, csrfToken } from "next-auth/client";
+import {
+  providers,
+  signIn,
+  signOut,
+  getSession,
+  csrfToken,
+} from "next-auth/client";
 
 // React Boostrap Icons
 import { ArrowLeftRight, Truck } from "react-bootstrap-icons";
@@ -74,7 +80,7 @@ function LogIn(props) {
   return (
     <div className="shadowed-box box-bg">
       <h1 className="title-1">Ingresar</h1>
-      <form method="post" action="/api/auth/signin/email">
+{/*       <form method="post" action="/api/auth/signin/email">
         <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
         <div className="mb-3">
           <label className="form-label">Email</label>
@@ -86,11 +92,13 @@ function LogIn(props) {
           />
         </div>
         <div className="w100 d-grid gap-2">
+          <button onClick={signOut}>Salir</button>
+
           <button className="btn btn-outline-dark provider-btn" type="submit">
             acceder con Email
           </button>
         </div>
-      </form>
+      </form> */}
       <div className="w100 d-grid gap-2">
         {Object.values(providers).map((provider) => {
           // El boton de email lo manejo aparte
