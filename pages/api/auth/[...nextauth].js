@@ -32,7 +32,4 @@ export default NextAuth({
     database: ":memory:",
     synchronize: true,
   },
-  pages: {
-    signIn: "/",
-  },
 });
