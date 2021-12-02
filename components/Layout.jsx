@@ -57,10 +57,10 @@ export const GeneralLayout = (props) => {
   return (
     <div className="cointainer min100">
       <Head>
-        <title>My Camion</title>
+        <title>NextJs Base App</title>
         <meta
           name="description"
-          content="Aplicación web para la gestión de un flete entre dos ubicaciones"
+          content="Aplicacion de NextJS base para ser usada en proyectos diversos. Aporta maneo de sesiones via oauth con nextauth y provee una base de datos sencilla en sqlite"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -88,10 +88,10 @@ export const BlankLayout = (props) => {
   return (
     <div className="cointainer min100">
       <Head>
-        <title>My Camion</title>
+        <title>NextJs Base App</title>
         <meta
           name="description"
-          content="Aplicación web para la gestión de un flete entre dos ubicaciones"
+          content="Aplicacion de NextJS base para ser usada en proyectos diversos. Aporta maneo de sesiones via oauth con nextauth y provee una base de datos sencilla en sqlite"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>

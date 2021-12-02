@@ -1,5 +1,4 @@
 // NextJS
-import Link from "next/link";
 
 // Next Auth
 import { signIn, signOut, useSession } from "next-auth/client";
@@ -7,7 +6,7 @@ import { signIn, signOut, useSession } from "next-auth/client";
 // React Boostrap Icons
 import { ArrowLeftRight, Truck } from "react-bootstrap-icons";
 
-import { BlankLayout } from "../components/Layout";
+import { BlankLayout, CenteredColRow } from "../components/Layout";
 
 export default function home() {
   const [session, loading] = useSession();
@@ -42,15 +41,9 @@ export const LandingPage = () => {
                 <Truck color="royalblue" size={96} />
               </header>
               <div className="d-grid gap-2 col-6 mx-auto">
-                <Link href="/">
-                  <button
-                    className="btn btn-dark"
-                    type="button"
-                    onClick={signIn}
-                  >
-                    Iniciar Sesión
-                  </button>
-                </Link>
+                <button className="btn btn-dark" type="button" onClick={signIn}>
+                  Iniciar Sesión
+                </button>
               </div>
             </div>
             <div className="col-md-5 col-lg-4"></div>
@@ -65,13 +58,14 @@ export const LandingPage = () => {
 export const Dashboard = () => {
   return (
     <BlankLayout>
-      <div className="row">
-        <div className="col-12 min80 d-flex flex-column align-items-center justify-content-center">
-          <div>
-            <h1>Dashboard</h1>
-          </div>
+      <CenteredColRow centerColSize={6} breakpoint="md">
+        <h1 className="text-center">Dashboard</h1>
+        <div className="d-grid gap-2 col-12 mx-auto w100">
+          <button className="btn btn-dark" type="button" onClick={signOut}>
+            Salir
+          </button>
         </div>
-      </div>
+      </CenteredColRow>
     </BlankLayout>
   );
 };
