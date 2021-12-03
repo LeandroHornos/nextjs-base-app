@@ -3,6 +3,8 @@
 // Next Auth
 import { signIn, signOut, useSession } from "next-auth/client";
 
+import Link from "next/link";
+
 // React Boostrap Icons
 import { ArrowLeftRight, Truck } from "react-bootstrap-icons";
 
@@ -44,6 +46,7 @@ export const LandingPage = () => {
                 <button className="btn btn-dark" type="button" onClick={signIn}>
                   Iniciar Sesión
                 </button>
+                <Link href="/protected">Ver página protegida</Link>
               </div>
             </div>
             <div className="col-md-5 col-lg-4"></div>
@@ -64,6 +67,7 @@ export const Dashboard = () => {
           <button className="btn btn-dark" type="button" onClick={signOut}>
             Salir
           </button>
+          <Link href="/protected">Ver página protegida</Link>
         </div>
       </CenteredColRow>
     </BlankLayout>
