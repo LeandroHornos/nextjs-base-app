@@ -27,11 +27,7 @@ const options = {
       clientSecret: process.env.TWITTER_SECRET,
     }),
   ],
-  database: {
-    type: "sqlite",
-    database: ":memory:",
-    synchronize: true,
-  },
+  database: process.env.DATABASE_URL,
 };
 
 export default (req, res) => NextAuth(req, res, options);

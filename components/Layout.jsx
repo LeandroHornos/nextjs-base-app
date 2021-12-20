@@ -33,6 +33,11 @@ export const CenteredColRow = (props) => {
     /*Este componente devuelve una Row de bootstrap, con 3 cols,
     una central que lleva el contenido y dos laterales que hacen de borde.
     centerColSize= número de columnas de ancho de la columna central
+
+    PROPS: 
+    breakpoint: "sm" / "md" / "lg", string
+    centerColsize: 1 a 12 int, ancho de la columna central de bootrap grid
+    rowClasses: string, clases que se agregan al className del div de clase row
     */
   }
   const { centerColSize, rowClasses } = props;
