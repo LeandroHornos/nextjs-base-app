@@ -4,6 +4,7 @@ export default async (req, res) => {
   const session = await getSession({ req });
 
   if (session) {
+    console.log("Sesion actual", session);
     res.send({ content: "Bienvenido a la página privada" });
   } else {
     res.send({ error: "Debes loguearte para acceder a esta página" });

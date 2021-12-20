@@ -12,45 +12,12 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  /*   padding: 0;
+  margin: 0; */
   font-family: "Zen Kaku Gothic Antique", -apple-system, BlinkMacSystemFont,
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
   background-size: cover;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* TITULOS */
-h1 {
-  font-size: 2.2em;
-}
-
-h2 {
-  font-size: 1.8em;
-}
-
-h3 {
-  font-size: 1.6em;
-  padding: 6px 0px;
-}
-
-.title-1 {
-  color: var(--color-1);
-  padding: 10px 0px;
-}
-
-label {
-  color: var(--color-1);
-}
-
-header {
-  margin: 40px 0px;
-  text-align: center;
 }
 
 .row {
@@ -58,13 +25,8 @@ header {
   padding: 10px 0px;
 }
 
-.ptb10 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.table-small-font {
-  font-size: 0.9em;
+.btn {
+  margin: 10px 0px;
 }
 
 .min100 {
@@ -131,14 +93,4 @@ header {
 
 .display-none {
   display: none;
-}
-
-.input-error {
-  color: rgb(190, 29, 0);
-  text-shadow: 5px 5px 12px 12px rgba(0, 0, 0, 1);
-}
-
-.provider-btn {
-  padding: 16px;
-  margin: 5px 0px;
 }
