@@ -27,6 +27,13 @@ const options = {
       clientSecret: process.env.TWITTER_SECRET,
     }),
   ],
+  callbacks: {
+    session: async (session, user) => {
+      session.userId = user.id;
+      console.log("Sesion con id", session)
+      return Promise.resolve(session);
+    },
+  },
   pages: { signIn: "/login" },
   database: process.env.DATABASE_URL,
 };
