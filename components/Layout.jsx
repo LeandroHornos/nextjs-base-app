@@ -38,9 +38,10 @@ export const CenteredColRow = (props) => {
     breakpoint: "sm" / "md" / "lg", string
     centerColsize: 1 a 12 int, ancho de la columna central de bootrap grid
     rowClasses: string, clases que se agregan al className del div de clase row
+    centerColClasses: string, clases que se agregan al className del div de la col central
     */
   }
-  const { centerColSize, rowClasses } = props;
+  const { centerColSize, rowClasses = "", centerColClasses = "" } = props;
   const bp = props.breakpoint;
   const left = Math.floor((12 - centerColSize) / 2);
   const right = 12 - centerColSize - left;
@@ -48,7 +49,9 @@ export const CenteredColRow = (props) => {
   return (
     <div className={"row" + " " + rowClasses}>
       <div className={`col-${bp}-${left}`}></div>
-      <div className={`col-${bp}-${centerColSize}`}>{props.children}</div>
+      <div className={`col-${bp}-${centerColSize}` + " " + centerColClasses}>
+        {props.children}
+      </div>
       <div className={`col-${bp}-${right}`}></div>
     </div>
   );
