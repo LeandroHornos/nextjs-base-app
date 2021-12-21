@@ -1,6 +1,6 @@
-import moongose from "mongoose";
+import mongoose from "mongoose";
 
-const connectDB = () => {
+export default function connectDB() {
   if (mongoose.connections[0].readyState) {
     console.log("Database is already connected");
   }
@@ -8,4 +8,4 @@ const connectDB = () => {
     if (err) throw err;
     console.log("Connected to MongoDB");
   });
-};
+}

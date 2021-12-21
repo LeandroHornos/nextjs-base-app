@@ -15,6 +15,6 @@ const todoSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-let Dataset = mongoose.model.todo || mongoose.model("todo", todoSchema);
+let Todos = mongoose.model.todo || mongoose.model("todo", todoSchema);
 
-export default Dataset;
+export default Todos;

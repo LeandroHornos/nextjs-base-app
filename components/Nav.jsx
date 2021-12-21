@@ -45,7 +45,7 @@ const Nav = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/todos-example">
+              <Link href="/todo">
                 <a className="nav-link active" aria-current="page">
                   ToDos
                 </a>
@@ -55,7 +55,7 @@ const Nav = () => {
               <Link href="/todos-example">
                 <a
                   className="nav-link disabled"
-                  tabindex="-1"
+                  tabIndex="-1"
                   aria-disabled="true"
                 >
                   Disabled

@@ -6,19 +6,23 @@ import { getSession } from "next-auth/client";
 connectDB();
 
 export default async function handler(req, res) {
+  console.log("Handler dice ola");
   switch (req.method) {
     case "POST":
-      await createTodo(req, res);
+      createTodo(req, res);
       break;
   }
 }
 
-const createTodo = async (req, res) => {
+export async function createTodo(req, res) {
+  console.log("createTodo saluda!");
+  console.log(req.body);
+  console.log(req.method);
   // Crea una nueva tarea en la base de datos
   try {
     const session = await getSession({ req });
-    console.log("createTodo saluda!")
-    console.log({ session, todo: req.body});
+
+    console.log({ session, todo: req.body });
     if (!session) {
       return res
         .status(400)
@@ -43,7 +47,7 @@ const createTodo = async (req, res) => {
       msg: "Well, it seems that you succeeded in creating a new todo. Cheers!",
     });
   } catch (err) {
-    console.log("oops, ocurrió un error")
+    console.log("oops, ocurrió un error");
     res.status(500).json({ msg: err.message });
   }
-};
+}

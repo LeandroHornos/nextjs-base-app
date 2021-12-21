@@ -3,12 +3,21 @@ import { useForm } from "react-hook-form";
 import { getSession } from "next-auth/client";
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
+import axios from "axios";
+
 export default function ToDo() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    const url = "http://localhost:3000/api/todo-example";
-    console.log("Submitting...", data);
+    console.log(data);
+    try {
+      console.log("Salvando...");
+      const res = await axios.post("/api/todo", { todo: data.name });
+      console.log("Se ha guardado con exito en la base de datos", res);
+      return;
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
