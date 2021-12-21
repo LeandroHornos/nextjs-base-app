@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GeneralLayout, CenteredColRow } from "../components/Layout";
+import { BlankLayout, CenteredColRow } from "../components/Layout";
 
 import { signIn, signOut, providers, getSession } from "next-auth/client";
 
@@ -8,20 +8,12 @@ import Router from "next/router";
 const Login = ({ providers, session }) => {
   useEffect(() => {
     if (session) {
-      return Router.push("/");
+      return Router.push("/dashboard");
     }
   }, [session]);
 
-  if (session) {
-    return (
-      <div>
-        <p>Ya has iniciado sesión</p>
-        <button onClick={signOut}>Salir</button>
-      </div>
-    );
-  }
   return (
-    <GeneralLayout>
+    <BlankLayout>
       <CenteredColRow
         breakpoint="md"
         centerColSize={6}
@@ -46,7 +38,7 @@ const Login = ({ providers, session }) => {
           ))}
         </div>
       </CenteredColRow>
-    </GeneralLayout>
+    </BlankLayout>
   );
 };
 

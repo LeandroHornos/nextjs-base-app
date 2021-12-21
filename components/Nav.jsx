@@ -4,50 +4,51 @@ import Link from "next/link";
 
 const Nav = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="/">
-          Inicio
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
         <button
-          className="navbar-toggler"
+          class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="/">
+            AppName
+          </a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <Link href="/dashboard">
+                <a class="nav-link active" aria-current="page">
+                  Dashboard
+                </a>
+              </Link>
+            </li>
+            <li class="nav-item">
               <Link href="/todos-example">
-                <a className="nav-link active" aria-current="page">
+                <a class="nav-link active" aria-current="page">
                   ToDos
                 </a>
               </Link>
             </li>
-            <li className="nav-item">
-              <Link href="/dashboard">
-                <a className="nav-link">Dashboard</a>
+            <li class="nav-item">
+              <Link href="/todos-example">
+                <a class="nav-link disabled" tabindex="-1" aria-disabled="true">
+                  Disabled
+                </a>
               </Link>
-            </li>
-            <li className="nav-item">
-              <a
-                className="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
             </li>
           </ul>
         </div>
         <Link href="/api/auth/signout">
-          <a className="nav-link">Salir</a>
+          <a class="nav-link active" aria-current="page">
+            Salir
+          </a>
         </Link>
       </div>
     </nav>

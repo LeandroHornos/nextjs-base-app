@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 
 import Nav from "../components/Nav";
@@ -68,8 +69,18 @@ export const GeneralLayout = (props) => {
   const { children } = props;
 
   return (
-    <div className="cointainer min100">
+    <React.Fragment>
       <Head>
+        <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+          integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+          integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+          crossorigin="anonymous"
+        ></script>
         <title>NextJs Base App</title>
         <meta
           name="description"
@@ -78,21 +89,23 @@ export const GeneralLayout = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      {children}
-      <footer>
-        <div className="row min20">
-          <div className="col-12 d-flex flex-column justify-content-center align-items-center">
-            <a
-              href="https://www.leandrohornos.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              created by Leandro Hornos
-            </a>
+      <div className="cointainer min100">
+        {children}
+        <footer>
+          <div className="row min20">
+            <div className="col-12 d-flex flex-column justify-content-center align-items-center">
+              <a
+                href="https://www.leandrohornos.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                created by Leandro Hornos
+              </a>
+            </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </React.Fragment>
   );
 };
 
@@ -100,8 +113,18 @@ export const BlankLayout = (props) => {
   const { children } = props;
 
   return (
-    <div className="cointainer min100">
+    <React.Fragment>
       <Head>
+        <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+          integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+          integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+          crossorigin="anonymous"
+        ></script>
         <title>NextJs Base App</title>
         <meta
           name="description"
@@ -109,7 +132,7 @@ export const BlankLayout = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {children}
-    </div>
+      <div className="cointainer min100">{children}</div>
+    </React.Fragment>
   );
 };
