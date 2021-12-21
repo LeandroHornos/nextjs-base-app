@@ -10,7 +10,7 @@ import logo from "../images/rocket.svg";
 const Nav = () => {
   const [session, loading] = useSession();
   if (!session) return null;
-  console.log("Nav dice", session, loading);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -85,10 +85,7 @@ const Nav = () => {
             aria-labelledby="dropdownMenuButton1"
           >
             <li>
-              <p
-                className="width100"
-                style={{ padding: "5px 20px" }}
-              >
+              <p className="width100" style={{ padding: "5px 20px" }}>
                 {session.user.name}
               </p>
             </li>

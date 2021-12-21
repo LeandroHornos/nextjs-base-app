@@ -30,7 +30,6 @@ const options = {
   callbacks: {
     session: async (session, user) => {
       session.userId = user.id;
-      // console.log("Sesion con id", session)
       return Promise.resolve(session);
     },
   },

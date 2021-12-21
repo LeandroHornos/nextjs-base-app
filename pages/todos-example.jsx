@@ -1,25 +1,40 @@
+import { useForm } from "react-hook-form";
+
 import { getSession } from "next-auth/client";
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
 export default function ToDo() {
-  const onSubmit = (data) => {
-    console.log(data);
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async (data) => {
+    const url = "http://localhost:3000/api/todo-example";
+    console.log("Submitting...", data);
   };
+
   return (
     <GeneralLayout>
-      <CenteredColRow
-        breakpoint="md"
-        centerColSize={8}
-        centerColClasses="min80 d-flex flex-column justify-content-between align-items-center"
-      >
-        <h1>Nueva tarea</h1>
-        <form action={onSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" className="form-control" />
-          </div>
-        </form>
-      </CenteredColRow>
+      <main>
+        <CenteredColRow
+          breakpoint="md"
+          centerColSize={6}
+          centerColClasses="min80 d-flex flex-column justify-content-start align-items-center"
+        >
+          <h1>Nueva tarea</h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="width100">
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                {...register("name")}
+                className="form-control"
+              />
+            </div>
+            <button type="submit" className="btn btn-dark">
+              Guardar
+            </button>
+          </form>
+        </CenteredColRow>
+      </main>
     </GeneralLayout>
   );
 }

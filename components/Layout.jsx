@@ -47,21 +47,37 @@ export const CenteredColRow = (props) => {
     breakpoint="md" centerColSize={8} centerColClasses="min80 d-flex flex-column justify-content-between align-items-center"
     */
   }
-  const { centerColSize, rowClasses = "", centerColClasses = "" } = props;
+  const { centerColSize, rowClasses, centerColClasses, sideColClasses } = props;
   const bp = props.breakpoint;
   const left = Math.floor((12 - centerColSize) / 2);
   const right = 12 - centerColSize - left;
 
   return (
     <div className={"row" + " " + rowClasses}>
-      <div className={`col-${bp}-${left}`}></div>
+      <div className={`col-${bp}-${left}` + " " + sideColClasses}></div>
       <div className={`col-${bp}-${centerColSize}` + " " + centerColClasses}>
         {props.children}
       </div>
-      <div className={`col-${bp}-${right}`}></div>
+      <div className={`col-${bp}-${right}` + " " + sideColClasses}></div>
     </div>
   );
 };
+
+CenteredColRow.defaultProps = {
+  centerColSize: 6,
+  breakpoint: "md",
+  rowClasses: "",
+  centerColClasses: "",
+  sideColClasses: "",
+};
+
+// LAYOUTS
+
+/* Los siguientes componentes se utilizan para dar estructura general a la web.
+Contienen un nav y un footer además del head correspondiente, que carga las 
+etiquetas meta así como los links y scripts. 
+Cuando se crea el componente de una página, retornar un layout y el contenido
+como children */
 
 export const GeneralLayout = (props) => {
   /* Estuctura general para las páginas del sitio */
