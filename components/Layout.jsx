@@ -1,5 +1,7 @@
 import Head from "next/head";
 
+import Nav from "../components/Nav";
+
 export const FlexRowLg10 = (props) => {
   {
     /*Este componente de */
@@ -72,6 +74,7 @@ export const GeneralLayout = (props) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav />
       {children}
       <footer>
         <div className="row min20">

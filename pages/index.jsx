@@ -1,25 +1,20 @@
 // NextJS
 
 // Next Auth
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, getSession } from "next-auth/client";
 
 import Link from "next/link";
 
 // React Boostrap Icons
 import { ArrowLeftRight, Truck } from "react-bootstrap-icons";
 
-import { BlankLayout, CenteredColRow } from "../components/Layout";
+import {
+  BlankLayout,
+  GeneralLayout,
+  CenteredColRow,
+} from "../components/Layout";
 
-export default function home() {
-  const [session, loading] = useSession();
-  if (!session) {
-    return <LandingPage />;
-  } else {
-    return <Dashboard />;
-  }
-}
-
-export const LandingPage = () => {
+export default function LandingPage() {
   return (
     <BlankLayout>
       <CenteredColRow
@@ -49,22 +44,17 @@ export const LandingPage = () => {
       </CenteredColRow>
     </BlankLayout>
   );
-};
+}
 
-export const Dashboard = () => {
-  return (
-    <BlankLayout>
-      <CenteredColRow centerColSize={8} breakpoint="md">
-        <div className="min80 d-flex flex-column justify-content-between align-items-center">
-          <h1 className="text-center">Dashboard</h1>
-          <Link href="/protected">Ver página protegida</Link>
-          <div className="d-grid gap-2 col-12 mx-auto w100">
-            <button className="btn btn-dark" type="button" onClick={signOut}>
-              Salir
-            </button>
-          </div>
-        </div>
-      </CenteredColRow>
-    </BlankLayout>
-  );
-};
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (session) {
+    return {
+      redirect: {
+        destination: "/dashboard",
+        permanent: false,
+      },
+    };
+  }
+  return { props: { msg: "No session" } };
+}
