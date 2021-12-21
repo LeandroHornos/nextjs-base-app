@@ -2,13 +2,24 @@ import { getSession } from "next-auth/client";
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
 export default function ToDo() {
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <GeneralLayout>
       <CenteredColRow
         breakpoint="md"
         centerColSize={8}
         centerColClasses="min80 d-flex flex-column justify-content-between align-items-center"
-      ></CenteredColRow>
+      >
+        <h1>Nueva tarea</h1>
+        <form action={onSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" id="name" className="form-control" />
+          </div>
+        </form>
+      </CenteredColRow>
     </GeneralLayout>
   );
 }
