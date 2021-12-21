@@ -6,14 +6,17 @@ import { GeneralLayout, CenteredColRow } from "../components/Layout";
 import axios from "axios";
 
 export default function ToDo() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, e) => {
     console.log(data);
     try {
       console.log("Salvando...");
       const res = await axios.post("/api/todo", { todo: data.name });
       console.log("Se ha guardado con exito en la base de datos", res);
+      reset("", {
+        keepValues: false,
+      });
       return;
     } catch (err) {
       console.log(err);
