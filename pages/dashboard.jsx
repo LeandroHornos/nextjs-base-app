@@ -13,11 +13,6 @@ export default function Dashboard() {
         <div className="min80 d-flex flex-column justify-content-between align-items-center">
           <h1 className="text-center">Dashboard</h1>
           <Link href="/protected">Ver página protegida</Link>
-          <div className="d-grid gap-2 col-12 mx-auto w100">
-            <button className="btn btn-dark" type="button" onClick={signOut}>
-              Salir
-            </button>
-          </div>
         </div>
       </CenteredColRow>
     </GeneralLayout>

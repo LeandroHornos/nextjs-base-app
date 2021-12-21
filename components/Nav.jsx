@@ -1,11 +1,13 @@
 import React from "react";
 
+import Link from "next/link";
+
 const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Navbar
+          Inicio
         </a>
         <button
           className="navbar-toggler"
@@ -21,19 +23,16 @@ const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+              <Link href="/todos-example">
+                <a className="nav-link active" aria-current="page">
+                  ToDos
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
+              <Link href="/dashboard">
+                <a className="nav-link">Dashboard</a>
+              </Link>
             </li>
             <li className="nav-item">
               <a
@@ -47,6 +46,9 @@ const Nav = () => {
             </li>
           </ul>
         </div>
+        <Link href="/api/auth/signout">
+          <a className="nav-link">Salir</a>
+        </Link>
       </div>
     </nav>
   );

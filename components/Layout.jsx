@@ -38,9 +38,12 @@ export const CenteredColRow = (props) => {
 
     PROPS: 
     breakpoint: "sm" / "md" / "lg", string
-    centerColsize: 1 a 12 int, ancho de la columna central de bootrap grid
+    centerColSize: 1 a 12 int, ancho de la columna central de bootrap grid
     rowClasses: string, clases que se agregan al className del div de clase row
     centerColClasses: string, clases que se agregan al className del div de la col central
+
+    ejemplo:
+    breakpoint="md" centerColSize={8} centerColClasses="min80 d-flex flex-column justify-content-between align-items-center"
     */
   }
   const { centerColSize, rowClasses = "", centerColClasses = "" } = props;
