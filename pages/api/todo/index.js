@@ -37,14 +37,14 @@ export async function createTodo(req, res) {
     if (!session) {
       return res
         .status(400)
-        .json({ msg: "Authentication Error. ¿Who are you?" });
+        .json({ msg: "Error de autenticación. ¿Quién eres, qué haces aquí?" });
     }
     const { todo } = req.body;
     const { userId } = session;
 
     if (!todo) {
       return res.status(400).json({
-        msg: "It seems that there is no todo here, so... there is nothing to do ;) Bye.",
+        msg: "No se ha recibido nada en el request",
       });
     }
 
@@ -55,7 +55,7 @@ export async function createTodo(req, res) {
 
     await newTodo.save();
     res.json({
-      msg: "Well, it seems that you succeeded in creating a new todo. Cheers!",
+      msg: "Felicitaciones, la tarea se ha creado con exito",
     });
   } catch (err) {
     console.log("oops, ocurrió un error");
@@ -64,6 +64,7 @@ export async function createTodo(req, res) {
 }
 
 export async function getTodos(req, res) {
+  // Obtiene todos los ToDos del usuario logueado
   console.log("get todos saluda!");
 
   try {

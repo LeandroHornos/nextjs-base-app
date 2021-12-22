@@ -1,9 +1,17 @@
+// REACT HOOK FORM
 import { useForm } from "react-hook-form";
 
+// NEXT AUTH
 import { getSession } from "next-auth/client";
+
+// LAYOUT
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
 
+// AXIOS
 import axios from "axios";
+
+// REACT TOASTIFY
+import { toast } from "react-toastify";
 
 export default function ToDo() {
   const { register, handleSubmit, reset } = useForm();
@@ -13,14 +21,16 @@ export default function ToDo() {
     try {
       console.log("Salvando...");
       const res = await axios.post("/api/todo", { todo: data.name });
-      console.log("Se ha guardado con exito en la base de datos", res);
-      console.log("1,2,3 probando")
+      toast.success(res.data.msg);
       reset("", {
         keepValues: false,
       });
       return;
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.msg);
+      reset("", {
+        keepValues: false,
+      });
     }
   };
 

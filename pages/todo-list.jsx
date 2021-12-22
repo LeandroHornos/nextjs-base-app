@@ -1,10 +1,14 @@
+//REACT
 import React, { useEffect, useState } from "react";
 
-// HTTP
+// AXIOS
 import axios from "axios";
 
-// Layout
+// LAYOUT
 import { GeneralLayout, CenteredColRow } from "../components/Layout";
+
+// REACT TOASTIFY
+import { toast } from "react-toastify";
 
 const Todos = () => {
   const [loading, setLoading] = useState(true);
@@ -12,11 +16,15 @@ const Todos = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
-      const res = await axios.get("/api/todo");
-      // console.log(res.data);
-      setTodos(res.data);
-      setLoading(false);
+      try {
+        setLoading(true);
+        const res = await axios.get("/api/todo");
+        setTodos(res.data);
+        setLoading(false);
+        // toast.success("Tus tareas se han cargado con éxito");
+      } catch (err) {
+          toast.error("Algo salio mal, prueba recargar la página")
+      }
     };
 
     fetchData();
