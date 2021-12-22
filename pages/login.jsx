@@ -5,13 +5,22 @@ import { signIn, signOut, providers, getSession } from "next-auth/client";
 
 import Router from "next/router";
 
+// REACT HOOK FORM
+import { useForm } from "react-hook-form";
+
 const Login = ({ providers, session }) => {
+  const { register, handleSubmit, reset } = useForm();
+
   const provs = Object.values(providers);
   useEffect(() => {
     if (session) {
       return Router.push("/dashboard");
     }
   }, [session]);
+
+  const onSubmit = async ({ email }) => {
+    await signIn("email", { email });
+  };
 
   return (
     <BlankLayout>
@@ -21,11 +30,11 @@ const Login = ({ providers, session }) => {
         centerColClasses="min80 d-flex flex-column align-items-center justify-content-between"
       >
         <h1>Ingresar</h1>
-        <p>
-          Elige el método que te resulte más conveniente para ingresar. Si aún
-          no tienes una cuenta, se creará una automáticamente.
-        </p>
+
         <div className="width100">
+          <div className="d-grid gap-2 col-8 mx-auto">
+            <p>Utiliza tu servicio favorito para autenticarte</p>
+          </div>
           {provs.map((provider) => {
             // El login con Email es tratado aparte
             if (provider.id == "email") {
@@ -43,6 +52,26 @@ const Login = ({ providers, session }) => {
               </div>
             );
           })}
+          <div className="d-grid gap-2 col-8 mx-auto">
+            <hr />
+            <p>O ingresa con un Magic Link en tu Email</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  type="email"
+                  {...register("email")}
+                  placeholder="name@domain.com"
+                />
+              </div>
+              <button
+                type="submit"
+                className="form-control btn btn-outline-dark"
+              >
+                Ingresar con Email
+              </button>
+            </form>
+          </div>
         </div>
       </CenteredColRow>
     </BlankLayout>

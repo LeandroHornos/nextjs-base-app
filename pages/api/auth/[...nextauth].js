@@ -1,6 +1,12 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+// EMAIL PROVIDER SETTINGS
+import { html, text } from "../../../utils/htmlEmail";
+
+// NODEMAILER
+import nodemailer from "nodemailer";
+
 const options = {
   providers: [
     Providers.Email({
@@ -13,6 +19,32 @@ const options = {
         },
       },
       from: process.env.EMAIL_FROM,
+      async sendVerificationRequest({
+        identifier: email,
+        url,
+        provider: { server, from },
+      }) {
+        console.log("Sending verification email papu");
+        console.log(
+          "Email:",
+          email,
+          "url",
+          url,
+          "server",
+          server,
+          "From",
+          from
+        );
+        const { host } = new URL(url);
+        const transport = nodemailer.createTransport(server);
+        await transport.sendMail({
+          to: email,
+          from,
+          subject: `Sign in to ${host}`,
+          text: text({ url, host }),
+          html: html({ url, host, email }),
+        });
+      },
     }),
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
