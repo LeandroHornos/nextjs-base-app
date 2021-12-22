@@ -14,6 +14,7 @@ export default function ToDo() {
       console.log("Salvando...");
       const res = await axios.post("/api/todo", { todo: data.name });
       console.log("Se ha guardado con exito en la base de datos", res);
+      console.log("1,2,3 probando")
       reset("", {
         keepValues: false,
       });
